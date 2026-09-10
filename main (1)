@@ -1,0 +1,6 @@
+0000000000000000000000000000000000000000 95285986223f7a1e5cdc925192fa516308e3fbeb Braden Chau <chaubraden@gmail.com> 1789080597 +0000	commit (initial): Add myRCSA calendar static site
+95285986223f7a1e5cdc925192fa516308e3fbeb 95285986223f7a1e5cdc925192fa516308e3fbeb Claude <noreply@anthropic.com> 1789080600 +0000	Branch: renamed refs/heads/master to refs/heads/main
+95285986223f7a1e5cdc925192fa516308e3fbeb 7b0596e7e3f93978c1207357e2c451be1487c49b Braden Chau <chaubraden@gmail.com> 1789081668 +0000	commit: Redesign: strict black-and-white minimalist look with real RCSA logo
+7b0596e7e3f93978c1207357e2c451be1487c49b 9d36905f21ddabb89e8ab61a3e0eb959327bc4b8 Braden Chau <chaubraden@gmail.com> 1789081685 +0000	commit: Update README for the black-and-white redesign and bundled logo
+9d36905f21ddabb89e8ab61a3e0eb959327bc4b8 f78fe1a2e7e198c47c4ac72de7b6d58b6d3f9bcf Braden Chau <chaubraden@gmail.com> 1789082684 +0000	commit: Rebuild layout as Swiss editorial minimalism: remove all boxes and heavy rules
+f78fe1a2e7e198c47c4ac72de7b6d58b6d3f9bcf fa5c4d437783f05167139c73290d41d4ef227eb6 Braden Chau <chaubraden@gmail.com> 1789083605 +0000	commit: Remove the category colour legend — the live calendar isn't colour-coded

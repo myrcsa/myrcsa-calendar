@@ -1,0 +1,12 @@
+Remove the category colour legend — the live calendar isn't colour-coded
+
+Verified the embed in a browser: all 20 events in September 2026 and both
+in October render in the same colour (Google's Lavender, #7986CB), so the
+per-category colours described in the submission PDF aren't applied to the
+events yet. The legend claimed a mapping that doesn't exist, so it's gone;
+categories are still documented in the submit section as plain text.
+
+Side effect: the page is now entirely black and white.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_018sH4rXLyBkGiD8HkHZo1xD

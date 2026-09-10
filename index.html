@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>myRCSA Calendar — Rotman Commerce Students' Association</title>
+<meta name="description" content="The myRCSA calendar is the single source for Rotman Commerce student events. View it, subscribe to it, or submit your event.">
+
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <img class="logo" src="assets/img/logo.png" alt="RCSA — Rotman Commerce Students’ Association">
+      <span class="wordmark">myRCSA</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="#calendar">Calendar</a>
+      <a href="#subscribe">Subscribe</a>
+      <a href="#submit">Submit an event</a>
+    </nav>
+
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd4VBHa-Jx93TEe79RQOvEhDkycbAqFEewNtK9zrHYtvxidIQ/viewform" target="_blank" rel="noopener">Submit an event</a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <h1 data-reveal>Everything happening across Rotman&nbsp;Commerce, in one calendar.</h1>
+      <p class="lede" data-reveal>
+        myRCSA is the public calendar maintained by the RCSA — the most up-to-date place
+        to find RC student events and student life. Subscribe once from your own calendar
+        app, or add your club’s event in a couple of minutes.
+      </p>
+      <p class="hero-actions" data-reveal>
+        <a class="btn" href="#subscribe">Subscribe to the calendar</a>
+        <a class="link" href="#submit">How to submit an event</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 01 CALENDAR -->
+  <section class="section" id="calendar">
+    <div class="wrap section-grid">
+      <div class="rail" data-reveal>
+        <span class="rail-num">01</span>
+        <span class="rail-label">Calendar</span>
+      </div>
+
+      <div class="col">
+        <h2 data-reveal>See what’s on</h2>
+        <p class="measure" data-reveal>
+          Browse the live calendar below, or open it in
+          <a class="link" href="https://calendar.google.com/calendar/u/0/embed?src=8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com" target="_blank" rel="noopener">Google Calendar</a>.
+          New submissions may take up to one business day to appear.
+        </p>
+
+        <div class="calendar" data-reveal>
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com&ctz=America%2FToronto&mode=MONTH&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&bgcolor=%23FFFFFF"
+            width="100%" height="640" frameborder="0" scrolling="no" loading="lazy"
+            title="myRCSA public calendar"></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 SUBSCRIBE -->
+  <section class="section" id="subscribe">
+    <div class="wrap section-grid">
+      <div class="rail" data-reveal>
+        <span class="rail-num">02</span>
+        <span class="rail-label">Subscribe</span>
+      </div>
+
+      <div class="col">
+        <h2 data-reveal>Never miss an event</h2>
+        <p class="measure" data-reveal>
+          Subscribe once and every new or updated event appears automatically in
+          Google Calendar, Apple Calendar, or Outlook. Copy the link — don’t click it.
+        </p>
+
+        <div class="field" data-reveal>
+          <label class="label" for="ics-link">Subscription link (.ics)</label>
+          <div class="field-row">
+            <input id="ics-link" type="text" readonly
+              value="https://calendar.google.com/calendar/ical/8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com/public/basic.ics">
+            <button class="link copy" id="copy-btn" type="button" data-copy-target="ics-link"><span>Copy</span></button>
+          </div>
+        </div>
+
+        <div class="steps" data-reveal>
+          <div class="step">
+            <p class="label">Google Calendar</p>
+            <ol>
+              <li>Open Google Calendar on desktop</li>
+              <li>Next to <em>Other calendars</em>, click the plus</li>
+              <li>Choose <em>From URL</em></li>
+              <li>Paste the link</li>
+            </ol>
+          </div>
+          <div class="step">
+            <p class="label">Apple Calendar</p>
+            <ol>
+              <li>Open Settings, then Calendar</li>
+              <li>Tap <em>Add Account</em>, then <em>Other</em></li>
+              <li>Choose <em>Add Subscribed Calendar</em></li>
+              <li>Paste the link</li>
+            </ol>
+          </div>
+          <div class="step">
+            <p class="label">Outlook</p>
+            <ol>
+              <li>Click <em>Add calendar</em></li>
+              <li>Choose <em>Subscribe from web</em></li>
+              <li>Paste the link</li>
+              <li>Confirm to finish</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 SUBMIT -->
+  <section class="section" id="submit">
+    <div class="wrap section-grid">
+      <div class="rail" data-reveal>
+        <span class="rail-num">03</span>
+        <span class="rail-label">Submit an event</span>
+      </div>
+
+      <div class="col">
+        <h2 data-reveal>Add your event</h2>
+        <p class="measure" data-reveal>
+          Submissions are reviewed and added by the RCSA team. Please allow one business
+          day for processing.
+        </p>
+
+        <div class="two-col" data-reveal>
+          <div>
+            <p class="label">Who can submit</p>
+            <p class="measure-sm">
+              <strong>Students.</strong> All recognized RC Academic Associations, RC Interest
+              Groups, RC Community Clubs, RC Houses, and RC Affiliated Groups are encouraged
+              to submit.
+            </p>
+            <p class="measure-sm">
+              <strong>Faculty and staff.</strong> We encourage all faculty to submit postings
+              for student-focused events.
+            </p>
+            <p class="measure-sm muted">
+              For Fall 2026, submissions are limited to student-focused events run by student
+              groups or RC faculty and staff. Job opportunities and deadlines aren’t being
+              accepted at this time.
+            </p>
+          </div>
+
+          <div>
+            <p class="label">Choose a category</p>
+            <ul class="categories">
+              <li><strong>Networking</strong><span class="desc">Meet and connect with peers, alumni, or industry</span></li>
+              <li><strong>Social</strong><span class="desc">Casual, fun events to relax and hang out</span></li>
+              <li><strong>Academic</strong><span class="desc">Study sessions, info sessions, academic support</span></li>
+              <li><strong>Speaker Panel</strong><span class="desc">Guest speakers sharing insights and Q&amp;A</span></li>
+              <li><strong>Workshop</strong><span class="desc">Hands-on sessions to learn a skill</span></li>
+              <li><strong>Competition</strong><span class="desc">Case competitions</span></li>
+              <li><strong>Other</strong><span class="desc">Doesn’t fit above? Tell us in your notes</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="cta" data-reveal>
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd4VBHa-Jx93TEe79RQOvEhDkycbAqFEewNtK9zrHYtvxidIQ/viewform" target="_blank" rel="noopener">Open the submission form</a>
+        </p>
+
+        <div class="contact" data-reveal>
+          <p class="measure">
+            Questions or a time-sensitive event? Email
+            <a class="link" href="mailto:myrcsa@gmail.com">myrcsa@gmail.com</a>, or message the
+            team on Teams — CC all three.
+          </p>
+          <ul class="people">
+            <li><strong>Enoch Chiu</strong><span>External, Director</span></li>
+            <li><strong>Braden Chau</strong><span>President</span></li>
+            <li><strong>Katherina Pan</strong><span>Vice-President</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <img class="logo" src="assets/img/logo.png" alt="RCSA">
+    <p>Rotman Commerce Students’ Association</p>
+    <p><a class="link" href="mailto:myrcsa@gmail.com">myrcsa@gmail.com</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
