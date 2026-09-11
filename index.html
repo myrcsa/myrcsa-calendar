@@ -93,48 +93,78 @@
       <div class="col">
         <h2 data-reveal>Never miss an event</h2>
         <p class="measure" data-reveal>
-          Subscribe once and every new or updated event appears automatically in
-          Google Calendar, Apple Calendar, or Outlook. Copy the link — don’t click it.
+          One tap. Pick your calendar app, confirm, and every RCSA event lands in
+          your own calendar — updating on its own as we add things.
         </p>
 
-        <div class="field" data-reveal>
-          <label class="label" for="ics-link">Subscription link (.ics)</label>
-          <div class="field-row">
-            <input id="ics-link" type="text" readonly
-              value="https://calendar.google.com/calendar/ical/8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com/public/basic.ics">
-            <button class="link copy" id="copy-btn" type="button" data-copy-target="ics-link"><span>Copy</span></button>
-          </div>
+        <div class="apps" data-reveal>
+          <a class="app app--google" id="app-google"
+             href="https://calendar.google.com/calendar/render?cid=8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com"
+             target="_blank" rel="noopener">
+            <span class="app-name">Google Calendar</span>
+            <span class="app-note">Android &amp; web</span>
+          </a>
+          <a class="app app--apple" id="app-apple"
+             href="webcal://calendar.google.com/calendar/ical/8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com/public/basic.ics">
+            <span class="app-name">Apple Calendar</span>
+            <span class="app-note">iPhone, iPad &amp; Mac</span>
+          </a>
+          <a class="app app--outlook" id="app-outlook"
+             href="https://outlook.office.com/calendar/0/addfromweb?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;name=myRCSA"
+             target="_blank" rel="noopener">
+            <span class="app-name">Outlook</span>
+            <span class="app-note">UofT account</span>
+          </a>
         </div>
 
-        <div class="steps" data-reveal>
-          <div class="step">
-            <p class="label">Google Calendar</p>
-            <ol>
-              <li>Open Google Calendar on desktop</li>
-              <li>Next to <em>Other calendars</em>, click the plus</li>
-              <li>Choose <em>From URL</em></li>
-              <li>Paste the link</li>
-            </ol>
+        <p class="apps-foot" data-reveal>
+          You&rsquo;ll be asked to confirm in your calendar app — nothing is added until you do.
+          Personal Outlook.com account?
+          <a class="link" href="https://outlook.live.com/calendar/0/addfromweb?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;name=myRCSA" target="_blank" rel="noopener">Use this link instead</a>.
+        </p>
+
+        <details class="manual" data-reveal>
+          <summary>Button didn&rsquo;t work? Add it by hand</summary>
+
+          <div class="field">
+            <label class="label" for="ics-link">Subscription link (.ics)</label>
+            <div class="field-row">
+              <input id="ics-link" type="text" readonly
+                value="https://calendar.google.com/calendar/ical/8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com/public/basic.ics">
+              <button class="link copy" id="copy-btn" type="button" data-copy-target="ics-link"><span>Copy</span></button>
+            </div>
           </div>
-          <div class="step">
-            <p class="label">Apple Calendar</p>
-            <ol>
-              <li>Open Settings, then Calendar</li>
-              <li>Tap <em>Add Account</em>, then <em>Other</em></li>
-              <li>Choose <em>Add Subscribed Calendar</em></li>
-              <li>Paste the link</li>
-            </ol>
+
+          <div class="steps">
+            <div class="step step--google">
+              <p class="label">Google Calendar</p>
+              <ol>
+                <li>Open Google Calendar on desktop</li>
+                <li>Next to <em>Other calendars</em>, click the plus</li>
+                <li>Choose <em>From URL</em></li>
+                <li>Paste the link</li>
+              </ol>
+            </div>
+            <div class="step step--apple">
+              <p class="label">Apple Calendar</p>
+              <ol>
+                <li>Open Settings, then Calendar</li>
+                <li>Tap <em>Add Account</em>, then <em>Other</em></li>
+                <li>Choose <em>Add Subscribed Calendar</em></li>
+                <li>Paste the link</li>
+              </ol>
+            </div>
+            <div class="step step--outlook">
+              <p class="label">Outlook</p>
+              <ol>
+                <li>Click <em>Add calendar</em></li>
+                <li>Choose <em>Subscribe from web</em></li>
+                <li>Paste the link</li>
+                <li>Confirm to finish</li>
+              </ol>
+            </div>
           </div>
-          <div class="step">
-            <p class="label">Outlook</p>
-            <ol>
-              <li>Click <em>Add calendar</em></li>
-              <li>Choose <em>Subscribe from web</em></li>
-              <li>Paste the link</li>
-              <li>Confirm to finish</li>
-            </ol>
-          </div>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -282,7 +312,24 @@
       input.setAttribute("readonly", "true");
     }
 
-    /* ---- Calendar view: month on desktop, agenda on phones ----
+    /* ---- Put the viewer's own calendar app first ----
+     Someone scanning the QR on a poster shouldn't have to hunt for their
+     platform. All three stay visible; only the order changes. */
+  var apps = document.querySelector(".apps");
+  if (apps) {
+    var ua = navigator.userAgent || "";
+    var isApple = /iPhone|iPad|iPod/.test(ua) ||
+                  (/Mac/.test(ua) && navigator.maxTouchPoints > 1) ||
+                  /Macintosh/.test(ua);
+    var isAndroid = /Android/.test(ua);
+    var first = isApple ? "app-apple" : (isAndroid ? "app-google" : null);
+    if (first) {
+      var el = document.getElementById(first);
+      if (el) apps.insertBefore(el, apps.firstElementChild);
+    }
+  }
+
+  /* ---- Calendar view: month on desktop, agenda on phones ----
        Google's month grid truncates event titles badly on a narrow screen,
        so phones get the agenda (schedule) list instead. Breakpoint matches
        the one in style.css. */

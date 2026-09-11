@@ -202,7 +202,65 @@ section[id]{ scroll-margin-top: 96px; }   /* clear the sticky header on jump lin
 }
 
 /* ---------- Subscribe ---------- */
-.field{ margin: 2.2em 0 2.8em; max-width: 46em; }
+
+/* One-tap subscribe buttons. Each is a real deep link into the app:
+   Google  -> calendar.google.com/calendar/render?cid=   (add-calendar prompt)
+   Apple   -> webcal://                                  (OS hands off to Calendar)
+   Outlook -> outlook.office.com .../addfromweb?url=     (subscribe-from-web dialog)
+   All three end in the app's own confirmation step. */
+.apps{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 2em 0 1.2em;
+}
+.app{
+  display: flex; flex-direction: column; gap: 3px;
+  padding: 20px 22px;
+  border: 1.5px solid var(--brand, var(--ink));
+  color: var(--brand, var(--ink));
+  transition: background .14s ease, color .14s ease;
+}
+.app:hover, .app:focus-visible{ background: var(--brand, var(--ink)); color: #fff; }
+.app-name{
+  font-size: 0.78rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.app-note{ font-size: 0.8rem; opacity: 0.72; letter-spacing: 0; text-transform: none; }
+
+.app--google{  --brand: #1a73e8; }
+.app--apple{   --brand: #d70015; }
+.app--outlook{ --brand: #0f6cbd; }
+
+.apps-foot{
+  font-size: 0.88rem;
+  color: var(--ink-3);
+  max-width: 40em;
+  margin-bottom: 2.4em;
+}
+
+/* Manual fallback, folded away so it doesn't compete with the buttons */
+.manual{ border-top: 1px solid var(--rule); padding-top: 1.2em; }
+.manual summary{
+  cursor: pointer;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  list-style: none;
+  display: flex; align-items: center; gap: 10px;
+  padding: 4px 0;
+}
+.manual summary::-webkit-details-marker{ display: none; }
+.manual summary::before{
+  content: "+";
+  font-size: 1rem; line-height: 1;
+  color: var(--ink-3);
+}
+.manual[open] summary::before{ content: "\2013"; }
+.manual summary:hover{ color: var(--ink); }
+
+.field{ margin: 1.8em 0 2.4em; max-width: 46em; }
 .field-row{
   display: flex; align-items: center; gap: 24px;
   border-bottom: 1px solid var(--ink);
@@ -225,7 +283,19 @@ section[id]{ scroll-margin-top: 96px; }   /* clear the sticky header on jump lin
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
-.step .label{ margin-bottom: 1em; padding-top: 1.1em; border-top: 1px solid var(--rule); }
+/* Each subscribe column is keyed to its app's brand colour — a scanning aid,
+   so you can jump to your calendar app without reading all three. Shades are
+   darkened from the official brand values to clear 4.5:1 on white. */
+.step--google{  --brand: #1a73e8; }   /* Google blue   */
+.step--apple{   --brand: #d70015; }   /* Calendar red  */
+.step--outlook{ --brand: #0f6cbd; }   /* Outlook blue  */
+
+.step .label{
+  margin-bottom: 1em;
+  padding-top: 1.1em;
+  border-top: 2px solid var(--brand, var(--rule));
+  color: var(--brand, var(--ink-3));
+}
 .step ol{
   margin: 0; padding: 0; list-style: none;
   counter-reset: step;
@@ -313,6 +383,7 @@ section[id]{ scroll-margin-top: 96px; }   /* clear the sticky header on jump lin
   /* single column now — the calendar has nothing to break out of */
   .calendar{ margin-left: 0; width: 100%; }
   .steps{ grid-template-columns: 1fr; gap: 26px; }
+  .apps{ grid-template-columns: 1fr; gap: 10px; }
   .two-col{ grid-template-columns: 1fr; gap: 32px; }
   .site-nav{
     display: none;
