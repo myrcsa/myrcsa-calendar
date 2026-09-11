@@ -101,26 +101,27 @@
           <a class="app app--google" id="app-google"
              href="https://calendar.google.com/calendar/render?cid=8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com"
              target="_blank" rel="noopener">
-            <span class="app-name">Google Calendar</span>
-            <span class="app-note">Android &amp; web</span>
+            <span class="app-name"><span class="gl gl-b">G</span><span class="gl gl-r">o</span><span class="gl gl-y">o</span><span class="gl gl-b">g</span><span class="gl gl-g">l</span><span class="gl gl-r">e</span> Calendar</span>
           </a>
           <a class="app app--apple" id="app-apple"
              href="webcal://calendar.google.com/calendar/ical/8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com/public/basic.ics">
             <span class="app-name">Apple Calendar</span>
-            <span class="app-note">iPhone, iPad &amp; Mac</span>
           </a>
           <a class="app app--outlook" id="app-outlook"
-             href="https://outlook.office.com/calendar/0/addfromweb?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;name=myRCSA"
+             href="https://outlook.office.com/calendar/0/addfromweb?url=webcal%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;name=myRCSA"
              target="_blank" rel="noopener">
             <span class="app-name">Outlook</span>
-            <span class="app-note">UofT account</span>
           </a>
         </div>
 
+        <p class="hint" id="outlook-hint" hidden>
+          Subscription link copied. If Outlook opens without asking you to subscribe, go to
+          <em>Add calendar &rarr; Subscribe from web</em> and paste it. On a personal account,
+          <a class="link" href="https://outlook.live.com/calendar/0/addfromweb?url=webcal%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;name=myRCSA" target="_blank" rel="noopener">use this link</a> instead.
+        </p>
+
         <p class="apps-foot" data-reveal>
           You&rsquo;ll be asked to confirm in your calendar app — nothing is added until you do.
-          Personal Outlook.com account?
-          <a class="link" href="https://outlook.live.com/calendar/0/addfromweb?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;name=myRCSA" target="_blank" rel="noopener">Use this link instead</a>.
         </p>
 
         <details class="manual" data-reveal>
@@ -327,6 +328,23 @@
       var el = document.getElementById(first);
       if (el) apps.insertBefore(el, apps.firstElementChild);
     }
+  }
+
+  /* ---- Outlook safety net ----
+     Microsoft doesn't officially support subscribe deep links, and a known
+     quirk shows the wrong dialog when you're already signed in. So clicking
+     Outlook also puts the feed URL on the clipboard and reveals the two-step
+     manual path — worst case the user pastes instead of retyping. */
+  var outlookBtn = document.getElementById("app-outlook");
+  var outlookHint = document.getElementById("outlook-hint");
+  if (outlookBtn && outlookHint) {
+    outlookBtn.addEventListener("click", function () {
+      var input = document.getElementById("ics-link");
+      if (input && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(input.value).catch(function () {});
+      }
+      outlookHint.hidden = false;
+    });
   }
 
   /* ---- Calendar view: month on desktop, agenda on phones ----

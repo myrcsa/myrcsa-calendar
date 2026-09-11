@@ -215,22 +215,41 @@ section[id]{ scroll-margin-top: 96px; }   /* clear the sticky header on jump lin
   margin: 2em 0 1.2em;
 }
 .app{
-  display: flex; flex-direction: column; gap: 3px;
-  padding: 20px 22px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 18px 20px;
   border: 1.5px solid var(--brand, var(--ink));
-  color: var(--brand, var(--ink));
+  color: var(--ink);
+  text-align: center;
   transition: background .14s ease, color .14s ease;
 }
-.app:hover, .app:focus-visible{ background: var(--brand, var(--ink)); color: #fff; }
 .app-name{
   font-size: 0.78rem; font-weight: 600;
   text-transform: uppercase; letter-spacing: 0.1em;
 }
-.app-note{ font-size: 0.8rem; opacity: 0.72; letter-spacing: 0; text-transform: none; }
 
-.app--google{  --brand: #1a73e8; }
-.app--apple{   --brand: #d70015; }
-.app--outlook{ --brand: #0f6cbd; }
+/* Google wordmark colours, letter by letter */
+.gl-b{ color: #4285f4; }   /* blue   */
+.gl-r{ color: #ea4335; }   /* red    */
+.gl-y{ color: #eaa300; }   /* yellow, darkened for legibility at this size */
+.gl-g{ color: #34a853; }   /* green  */
+
+.app--google{  --brand: #4285f4; }
+.app--apple{   --brand: #111111; }   /* Apple is black and white */
+.app--outlook{ --brand: #0078d4; }   /* Microsoft blue */
+
+.app--outlook{ color: #0078d4; }
+
+.app:hover, .app:focus-visible{ background: var(--brand); color: #fff; }
+.app--google:hover .gl, .app--google:focus-visible .gl{ color: #fff; }
+
+.hint{
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  max-width: 40em;
+  margin: 0 0 1em;
+  padding-left: 14px;
+  border-left: 2px solid #0078d4;
+}
 
 .apps-foot{
   font-size: 0.88rem;
