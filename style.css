@@ -16,9 +16,11 @@
   --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --mono:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 
-  --maxw: 1080px;
-  --rail: 200px;
-  --gap:  72px;
+  --pink:   #ff2e8a;   /* Rotman Commerce neon pink — one accent, used once */
+
+  --maxw: 1220px;
+  --rail: 150px;
+  --gap:  56px;
 }
 
 *, *::before, *::after{ box-sizing: border-box; }
@@ -52,18 +54,20 @@ h1, h2{
   letter-spacing: -0.01em;
   margin: 0 0 0.5em;
 }
-h1{ font-size: clamp(2.75rem, 6.2vw, 4.75rem); line-height: 1.03; max-width: 15ch; }
-h2{ font-size: clamp(1.9rem, 3.4vw, 2.6rem); line-height: 1.08; margin-bottom: 0.6em; }
+h1{ font-size: clamp(2.6rem, 5.6vw, 4.5rem); line-height: 1.0; max-width: 17ch; }
+h2{ font-size: clamp(1.8rem, 3.1vw, 2.4rem); line-height: 1.06; margin-bottom: 0.45em; }
+
+.accent{ color: var(--pink); }
 
 strong{ color: var(--ink); font-weight: 600; }
 em{ font-style: normal; color: var(--ink); font-weight: 500; }
 
 .lede{
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: 1.12rem;
+  line-height: 1.45;
   color: var(--ink-2);
-  max-width: 34em;
-  margin-top: 1.4em;
+  max-width: 32em;
+  margin-top: 1.1em;
 }
 .measure{ max-width: 34em; }        /* ~50–75 characters */
 .measure-sm{ max-width: 30em; font-size: 0.95rem; }
@@ -75,7 +79,7 @@ em{ font-style: normal; color: var(--ink); font-weight: 500; }
   text-transform: uppercase;
   letter-spacing: 0.12em;           /* caps need the extra tracking */
   color: var(--ink-3);
-  margin: 0 0 1.1em;
+  margin: 0 0 0.9em;
 }
 
 /* ---------- Links & buttons ---------- */
@@ -146,16 +150,17 @@ button.link{
 .nav-toggle span{ display: block; height: 1px; width: 22px; background: var(--ink); }
 
 /* ---------- Hero ---------- */
-.hero{ padding: 150px 0 130px; }
+.hero{ padding: 92px 0 76px; }
 .hero-actions{
   display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
-  margin-top: 2.6em;
+  margin-top: 2em;
 }
 
 /* ---------- Section grid ---------- */
+section[id]{ scroll-margin-top: 96px; }   /* clear the sticky header on jump links */
 .section{
   border-top: 1px solid var(--rule);
-  padding: 72px 0 130px;
+  padding: 56px 0 84px;
 }
 .section-grid{
   display: grid;
@@ -165,7 +170,7 @@ button.link{
 }
 .rail{
   display: flex; flex-direction: column; gap: 4px;
-  position: sticky; top: 120px;
+  position: sticky; top: 104px;
 }
 .rail-num{
   font-family: var(--mono);
@@ -181,12 +186,23 @@ button.link{
   color: var(--ink);
 }
 
-/* ---------- Calendar ---------- */
-.calendar{ margin: 3em 0 0; }
-.calendar iframe{ display: block; width: 100%; border: 1px solid var(--rule); }
+/* ---------- Calendar ----------
+   Breaks out of the text column so the month grid gets the full container
+   width — Google truncates event titles in narrow columns. */
+.calendar{
+  margin: 2.2em 0 0;
+  margin-left: calc(-1 * (var(--rail) + var(--gap)));
+  width: calc(100% + var(--rail) + var(--gap));
+}
+.calendar iframe{
+  display: block;
+  width: 100%;
+  height: clamp(660px, 76vh, 900px);
+  border: 1px solid var(--rule);
+}
 
 /* ---------- Subscribe ---------- */
-.field{ margin: 3em 0 3.5em; max-width: 46em; }
+.field{ margin: 2.2em 0 2.8em; max-width: 46em; }
 .field-row{
   display: flex; align-items: center; gap: 24px;
   border-bottom: 1px solid var(--ink);
@@ -207,7 +223,7 @@ button.link{
 .steps{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 32px;
 }
 .step .label{ margin-bottom: 1em; padding-top: 1.1em; border-top: 1px solid var(--rule); }
 .step ol{
@@ -234,8 +250,8 @@ button.link{
 .two-col{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  margin: 3em 0 3.5em;
+  gap: 48px;
+  margin: 2.2em 0 2.6em;
 }
 .two-col .label{ padding-top: 1.1em; border-top: 1px solid var(--rule); }
 
@@ -252,11 +268,11 @@ button.link{
   color: var(--ink-3);
 }
 
-.cta{ margin: 0 0 4em; }
+.cta{ margin: 0 0 2.8em; }
 
-.contact{ padding-top: 2.4em; border-top: 1px solid var(--rule); }
+.contact{ padding-top: 2em; border-top: 1px solid var(--rule); }
 .people{
-  list-style: none; margin: 2em 0 0; padding: 0;
+  list-style: none; margin: 1.6em 0 0; padding: 0;
   display: flex; flex-wrap: wrap; gap: 40px;
 }
 .people li{ display: flex; flex-direction: column; }
@@ -264,7 +280,7 @@ button.link{
 .people span{ font-size: 0.8rem; color: var(--ink-3); }
 
 /* ---------- Footer ---------- */
-.site-footer{ border-top: 1px solid var(--rule); padding: 40px 0 60px; }
+.site-footer{ border-top: 1px solid var(--rule); padding: 32px 0 40px; }
 .footer-inner{
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
   font-size: 0.85rem;
@@ -282,37 +298,76 @@ button.link{
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1100px){
+  :root{ --rail: 130px; --gap: 44px; }
+}
+
 @media (max-width: 900px){
   .wrap{ padding: 0 28px; }
   .section-grid{ grid-template-columns: 1fr; }
   .rail{
     position: static;
     flex-direction: row; align-items: baseline; gap: 12px;
-    margin-bottom: 2.4em;
+    margin-bottom: 1.8em;
   }
-  .steps{ grid-template-columns: 1fr; gap: 28px; }
-  .two-col{ grid-template-columns: 1fr; gap: 40px; }
+  /* single column now — the calendar has nothing to break out of */
+  .calendar{ margin-left: 0; width: 100%; }
+  .steps{ grid-template-columns: 1fr; gap: 26px; }
+  .two-col{ grid-template-columns: 1fr; gap: 32px; }
   .site-nav{
     display: none;
     position: absolute; top: 78px; left: 0; right: 0;
-    flex-direction: column; gap: 20px;
+    flex-direction: column; gap: 4px;
     background: var(--paper);
     border-bottom: 1px solid var(--rule);
-    padding: 24px 28px 32px;
+    padding: 12px 28px 20px;
   }
   .site-nav.is-open{ display: flex; }
+  .site-nav a{ padding: 12px 0; font-size: 1rem; }   /* comfortable tap targets */
   .nav-toggle{ display: flex; order: 3; }
   .header-inner{ gap: 20px; }
-  .hero{ padding: 96px 0 88px; }
-  .section{ padding: 56px 0 96px; }
+  .hero{ padding: 64px 0 56px; }
+  .section{ padding: 44px 0 64px; }
+}
+
+/* Phones: the month grid is unreadable at this width, so script.js loads
+   Google's agenda view instead — this keeps the frame sized for it. */
+@media (max-width: 700px){
+  .calendar iframe{ height: clamp(460px, 62vh, 620px); }
 }
 
 @media (max-width: 560px){
   body{ font-size: 16px; }
-  .wrap{ padding: 0 22px; }
-  .btn{ padding: 13px 20px; }
+  .wrap{ padding: 0 20px; }
+  section[id]{ scroll-margin-top: 76px; }
+
+  .site-header{ }
+  .header-inner{ height: 64px; }
+  .site-nav{ top: 64px; padding: 12px 20px 20px; }
   .header-inner .btn{ display: none; }
-  .field-row{ flex-wrap: wrap; gap: 12px; }
-  .people{ gap: 24px; }
+  .brand .logo{ height: 30px; width: 30px; }
+
+  h1{ font-size: 2.15rem; line-height: 1.05; max-width: none; }
+  .lede{ font-size: 1.02rem; }
+  h2{ font-size: 1.65rem; }
+
+  .hero{ padding: 48px 0 44px; }
+  .hero-actions{ gap: 18px; margin-top: 1.6em; }
+  .hero-actions .btn{ width: 100%; text-align: center; }
+  .section{ padding: 36px 0 52px; }
+
+  .btn{ padding: 15px 20px; }                 /* 48px tall tap target */
+  .field-row{ flex-wrap: nowrap; gap: 14px; }
+  .field-row input{ font-size: 0.72rem; }
+  .copy{ font-size: 0.85rem; }
+
+  .rail{ margin-bottom: 1.4em; }
+  .people{ gap: 18px; }
+  .footer-inner{ gap: 10px; }
   .footer-inner p:last-child{ margin-left: 0; flex-basis: 100%; }
+}
+
+@media (max-width: 380px){
+  .wrap{ padding: 0 16px; }
+  h1{ font-size: 1.95rem; }
 }
