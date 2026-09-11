@@ -208,12 +208,15 @@ section[id]{ scroll-margin-top: 96px; }   /* clear the sticky header on jump lin
    Apple   -> webcal://                                  (OS hands off to Calendar)
    Outlook -> outlook.office.com .../addfromweb?url=     (subscribe-from-web dialog)
    All three end in the app's own confirmation step. */
+.app-group{ margin: 2em 0 1.6em; }
+.app-group .label{ margin-bottom: 0.8em; }
+
 .apps{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
-  margin: 2em 0 1.2em;
 }
+.apps--2{ grid-template-columns: repeat(2, 1fr); }
+.apps--3{ grid-template-columns: repeat(3, 1fr); }
 .app{
   display: flex; align-items: center; justify-content: center;
   padding: 18px 20px;
@@ -242,6 +245,7 @@ section[id]{ scroll-margin-top: 96px; }   /* clear the sticky header on jump lin
 .app:hover, .app:focus-visible{ background: var(--brand); color: #fff; }
 .app--google:hover .gl, .app--google:focus-visible .gl{ color: #fff; }
 
+.hint-msg[hidden]{ display: none; }
 .hint{
   font-size: 0.88rem;
   color: var(--ink-2);
@@ -402,7 +406,8 @@ section[id]{ scroll-margin-top: 96px; }   /* clear the sticky header on jump lin
   /* single column now — the calendar has nothing to break out of */
   .calendar{ margin-left: 0; width: 100%; }
   .steps{ grid-template-columns: 1fr; gap: 26px; }
-  .apps{ grid-template-columns: 1fr; gap: 10px; }
+  .apps--2, .apps--3{ grid-template-columns: 1fr; gap: 10px; }
+  .app-group{ margin: 1.6em 0 1.4em; }
   .two-col{ grid-template-columns: 1fr; gap: 32px; }
   .site-nav{
     display: none;

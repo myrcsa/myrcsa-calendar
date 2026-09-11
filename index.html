@@ -97,27 +97,56 @@
           your own calendar — updating on its own as we add things.
         </p>
 
-        <div class="apps" data-reveal>
-          <a class="app app--google" id="app-google"
-             href="https://calendar.google.com/calendar/render?cid=8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com"
-             target="_blank" rel="noopener">
-            <span class="app-name"><span class="gl gl-b">G</span><span class="gl gl-r">o</span><span class="gl gl-y">o</span><span class="gl gl-b">g</span><span class="gl gl-g">l</span><span class="gl gl-r">e</span> Calendar</span>
-          </a>
-          <a class="app app--apple" id="app-apple"
-             href="webcal://calendar.google.com/calendar/ical/8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com/public/basic.ics">
-            <span class="app-name">Apple Calendar</span>
-          </a>
-          <a class="app app--outlook" id="app-outlook"
-             href="https://outlook.office.com/calendar/0/addfromweb?url=webcal%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;name=myRCSA"
-             target="_blank" rel="noopener">
-            <span class="app-name">Outlook</span>
-          </a>
+        <div class="app-group" data-reveal>
+          <p class="label">On your phone</p>
+          <div class="apps apps--2" id="apps-phone">
+            <a class="app app--apple" href="webcal://calendar.google.com/calendar/ical/8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com/public/basic.ics">
+              <span class="app-name">Apple Calendar</span>
+            </a>
+            <a class="app app--google" href="https://calendar.google.com/calendar/render?cid=8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com" target="_blank" rel="noopener">
+              <span class="app-name"><span class="gl gl-b">G</span><span class="gl gl-r">o</span><span class="gl gl-y">o</span><span class="gl gl-b">g</span><span class="gl gl-g">l</span><span class="gl gl-r">e</span> Calendar</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="app-group" data-reveal>
+          <p class="label">On a computer</p>
+          <div class="apps apps--3" id="apps-desktop">
+            <a class="app app--apple" href="webcal://calendar.google.com/calendar/ical/8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com/public/basic.ics">
+              <span class="app-name">Apple Calendar</span>
+            </a>
+            <a class="app app--google" href="https://calendar.google.com/calendar/render?cid=8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com" target="_blank" rel="noopener">
+              <span class="app-name"><span class="gl gl-b">G</span><span class="gl gl-r">o</span><span class="gl gl-y">o</span><span class="gl gl-b">g</span><span class="gl gl-g">l</span><span class="gl gl-r">e</span> Calendar</span>
+            </a>
+            <a class="app app--outlook" id="app-outlook" href="https://outlook.office.com/calendar/0/addfromweb?url=webcal%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;name=myRCSA" target="_blank" rel="noopener">
+              <span class="app-name">Outlook</span>
+            </a>
+          </div>
         </div>
 
         <p class="hint" id="outlook-hint" hidden>
-          Subscription link copied. If Outlook opens without asking you to subscribe, go to
-          <em>Add calendar &rarr; Subscribe from web</em> and paste it. On a personal account,
-          <a class="link" href="https://outlook.live.com/calendar/0/addfromweb?url=webcal%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;name=myRCSA" target="_blank" rel="noopener">use this link</a> instead.
+          <span class="hint-msg" id="hint-app">
+            If Outlook opened, confirm the subscription there. Still in a browser?
+            <a class="link" href="https://outlook.office.com/calendar/0/addfromweb?url=webcal%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;name=myRCSA" target="_blank" rel="noopener">Subscribe on the web</a>
+            — or paste the copied link into <em>Add calendar &rarr; Subscribe from web</em>.
+          </span>
+          <span class="hint-msg" id="hint-web" hidden>
+            Outlook should show a subscribe prompt. If it drops you on your calendar instead,
+            paste the copied link into <em>Add calendar &rarr; Subscribe from web</em>.
+          </span>
+          <span class="hint-msg" id="hint-ios" hidden>
+            Outlook on iPhone can&rsquo;t subscribe to calendars — that&rsquo;s a Microsoft
+            limitation, not a broken link. Best option:
+            <a class="link" href="webcal://calendar.google.com/calendar/ical/8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com/public/basic.ics">add it to Apple Calendar</a>, which puts the events
+            in your iPhone&rsquo;s calendar app. Otherwise subscribe from Outlook on a computer —
+            the link is already copied.
+          </span>
+          <span class="hint-msg" id="hint-android" hidden>
+            Outlook on Android can&rsquo;t subscribe to calendars — that&rsquo;s a Microsoft
+            limitation, not a broken link. Best option:
+            <a class="link" href="https://calendar.google.com/calendar/render?cid=8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59%40group.calendar.google.com" target="_blank" rel="noopener">add it to Google Calendar</a>.
+            Otherwise subscribe from Outlook on a computer — the link is already copied.
+          </span>
         </p>
 
         <p class="apps-foot" data-reveal>
@@ -313,38 +342,77 @@
       input.setAttribute("readonly", "true");
     }
 
-    /* ---- Put the viewer's own calendar app first ----
-     Someone scanning the QR on a poster shouldn't have to hunt for their
-     platform. All three stay visible; only the order changes. */
-  var apps = document.querySelector(".apps");
-  if (apps) {
-    var ua = navigator.userAgent || "";
-    var isApple = /iPhone|iPad|iPod/.test(ua) ||
-                  (/Mac/.test(ua) && navigator.maxTouchPoints > 1) ||
-                  /Macintosh/.test(ua);
-    var isAndroid = /Android/.test(ua);
-    var first = isApple ? "app-apple" : (isAndroid ? "app-google" : null);
-    if (first) {
-      var el = document.getElementById(first);
-      if (el) apps.insertBefore(el, apps.firstElementChild);
-    }
+    /* ---- Put the viewer's own calendar app first in the phone row ---- */
+  var phoneRow = document.getElementById("apps-phone");
+  if (phoneRow && /Android/.test(navigator.userAgent || "")) {
+    var g = phoneRow.querySelector(".app--google");
+    if (g) phoneRow.insertBefore(g, phoneRow.firstElementChild);
   }
 
-  /* ---- Outlook safety net ----
-     Microsoft doesn't officially support subscribe deep links, and a known
-     quirk shows the wrong dialog when you're already signed in. So clicking
-     Outlook also puts the feed URL on the clipboard and reveals the two-step
-     manual path — worst case the user pastes instead of retyping. */
+  /* ---- Outlook, which is a mess on every platform ----
+     Desktop Windows : webcal:// is claimed by the Outlook desktop app, so the
+                       OS hands it over and Outlook shows its own subscribe prompt.
+     Desktop elsewhere: webcal:// belongs to Apple Calendar on macOS, so use
+                       Microsoft's (unofficial) addfromweb web endpoint instead.
+     Phones          : Outlook for iOS and Android cannot subscribe to internet
+                       calendars at all — Microsoft confirms this — and web
+                       subscriptions frequently fail to sync down to the app. So
+                       don't pretend: explain it and offer the calendar that does
+                       work on that device.
+     Every path copies the feed URL first, so no click is a dead end. */
   var outlookBtn = document.getElementById("app-outlook");
   var outlookHint = document.getElementById("outlook-hint");
-  if (outlookBtn && outlookHint) {
-    outlookBtn.addEventListener("click", function () {
+  var WEBCAL =
+    "webcal://calendar.google.com/calendar/ical/" +
+    "8d35425b79d05265bf7ef5be2c28fdb614c5d153cbb52eb69f4d67aa35725f59" +
+    "%40group.calendar.google.com/public/basic.ics";
+
+  if (outlookBtn) {
+    var uaStr = navigator.userAgent || "";
+    var platStr = (navigator.userAgentData && navigator.userAgentData.platform) ||
+                  navigator.platform || uaStr;
+    var iOS = /iPad|iPhone|iPod/.test(uaStr) ||
+              (/Mac/.test(platStr) && navigator.maxTouchPoints > 1);
+    var android = /Android/.test(uaStr);
+    var windows = /Win/i.test(platStr);
+
+    var showHint = function (id) {
+      var msgs = outlookHint ? outlookHint.querySelectorAll(".hint-msg") : [];
+      for (var i = 0; i < msgs.length; i++) msgs[i].hidden = (msgs[i].id !== id);
+      if (outlookHint) outlookHint.hidden = false;
+    };
+
+    var copyFeed = function () {
       var input = document.getElementById("ics-link");
       if (input && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(input.value).catch(function () {});
       }
-      outlookHint.hidden = false;
-    });
+    };
+
+    if (windows) {
+      outlookBtn.setAttribute("href", WEBCAL);   // hand off to the desktop app
+      outlookBtn.removeAttribute("target");
+      outlookBtn.removeAttribute("rel");
+      outlookBtn.addEventListener("click", function () {
+        copyFeed();
+        showHint("hint-app");
+      });
+    } else if (iOS || android) {
+      // Navigating would land them on a calendar web page that can't help.
+      outlookBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        copyFeed();
+        showHint(iOS ? "hint-ios" : "hint-android");
+        if (outlookHint.scrollIntoView) {
+          outlookHint.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      });
+    } else {
+      outlookBtn.addEventListener("click", function () {
+        copyFeed();
+        showHint("hint-web");
+      });
+    }
   }
 
   /* ---- Calendar view: month on desktop, agenda on phones ----
